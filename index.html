@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>충남명인전 | 고향에서 꽃피는 예술의 혼</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #3a4fa0;
+    --navy-deep: #2a3a7a;
+    --navy-darker: #1e2d68;
+    --pink: #f07ba0;
+    --pink-light: #f5a8c0;
+    --cream: #f5e6c8;
+    --gold: #c9a84c;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a4a6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #2a3a7a;
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #2a3a7a 0%, #3a4fa0 50%, #3a3a90 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(232,99,138,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(30,45,90,0.4) 0%, transparent 60%);
+  }
+
+  .hero-deco-top {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(240,123,160,0.35);
+    filter: blur(1px);
+  }
+
+  .hero-deco-top2 {
+    position: absolute;
+    top: 20px; right: 60px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(42,58,122,0.8);
+  }
+
+  .hero-deco-bl {
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(240,123,160,0.2);
+  }
+
+  .hero-deco-tr {
+    position: absolute;
+    top: 40px; right: -20px;
+    width: 120px; height: 60px;
+    border-radius: 0 0 120px 120px;
+    background: rgba(240,123,160,0.25);
+  }
+
+  .notice {
+    position: relative;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 36px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+  }
+
+  .hero-subtitle {
+    position: relative;
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(14px, 3vw, 18px);
+    font-weight: 400;
+    color: var(--pink-light);
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    position: relative;
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(52px, 14vw, 110px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 40px rgba(232,99,138,0.2);
+  }
+
+  .hero-title span {
+    color: var(--pink);
+  }
+
+  .hero-en {
+    position: relative;
+    font-size: clamp(10px, 2vw, 13px);
+    letter-spacing: 0.3em;
+    color: rgba(245,240,232,0.4);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-info-row {
+    position: relative;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 52px;
+  }
+
+  .hero-info-item {
+    text-align: center;
+  }
+
+  .hero-info-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--pink);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .hero-info-value {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(14px, 3vw, 17px);
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+
+  .divider-line {
+    width: 1px;
+    height: 50px;
+    background: rgba(245,240,232,0.2);
+    align-self: center;
+  }
+
+  .performers-row {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    max-width: 600px;
+  }
+
+  .performer-tag {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(232,99,138,0.3);
+    border-radius: 40px;
+    padding: 8px 18px;
+    font-size: 13px;
+    color: rgba(245,240,232,0.85);
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+
+  .performer-tag:hover {
+    background: rgba(232,99,138,0.15);
+    border-color: var(--pink);
+    color: var(--cream);
+  }
+
+  .performer-tag.special {
+    background: rgba(232,99,138,0.12);
+    border-color: var(--pink);
+    color: var(--pink-light);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245,240,232,0.3);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(245,240,232,0.3), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── PROGRAM SECTION ── */
+  .section {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--pink);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 60px;
+    line-height: 1.3;
+  }
+
+  /* ── OPENING ── */
+  .opening-card {
+    background: linear-gradient(135deg, rgba(232,99,138,0.12), rgba(30,45,90,0.3));
+    border: 1px solid rgba(232,99,138,0.25);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 24px;
+  }
+
+  .opening-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--pink);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .opening-desc {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.75);
+    font-weight: 300;
+  }
+
+  /* ── PROGRAM LIST ── */
+  .program-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .program-item {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.35s;
+    cursor: default;
+  }
+
+  .program-item:hover {
+    background: rgba(232,99,138,0.07);
+    border-color: rgba(232,99,138,0.2);
+    transform: translateX(4px);
+  }
+
+  .program-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(232,99,138,0.4);
+    text-align: center;
+  }
+
+  .program-info {}
+
+  .program-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .program-desc {
+    font-size: 13px;
+    color: rgba(245,240,232,0.45);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+
+  .program-performer {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--pink-light);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .program-performer.special-performer {
+    color: var(--gold);
+  }
+
+  .program-item.special-item {
+    background: rgba(201,168,76,0.06);
+    border-color: rgba(201,168,76,0.2);
+  }
+
+  .program-item.special-item:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.35);
+  }
+
+  .special-badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 20px;
+    padding: 2px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* ── OVERVIEW ── */
+  .overview-section {
+    padding: 80px 20px;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .overview-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .overview-item {
+    padding: 32px 28px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+  }
+
+  .overview-key {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--pink);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .overview-val {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(15px, 2.5vw, 18px);
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #2a3a7a;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .footer-sub {
+    font-size: 13px;
+    color: rgba(245,240,232,0.35);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+  }
+
+  .footer-org {
+    font-size: 13px;
+    color: rgba(245,240,232,0.4);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── ACCORDION ── */
+  .program-desc-expand {
+    display: none;
+    grid-column: 1 / -1;
+    padding: 16px 0 4px 68px;
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(245,230,200,0.65);
+    font-weight: 300;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 16px;
+    animation: expandIn 0.3s ease;
+  }
+
+  .program-item.expanded .program-desc-expand {
+    display: block;
+  }
+
+  .program-item {
+    cursor: pointer;
+  }
+
+  .expand-icon {
+    font-size: 18px;
+    color: rgba(245,230,200,0.3);
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: 8px;
+    display: inline-block;
+  }
+
+  .program-item.expanded .expand-icon {
+    transform: rotate(45deg);
+    color: var(--pink);
+  }
+
+  @keyframes expandIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .program-desc-expand {
+      padding-left: 44px;
+    }
+  }
+  @media (max-width: 600px) {
+    .program-item {
+      grid-template-columns: 32px 1fr;
+      grid-template-rows: auto auto;
+      padding: 20px 20px;
+      gap: 12px;
+    }
+    .program-performer {
+      grid-column: 2;
+      text-align: left;
+    }
+    .divider-line { display: none; }
+    .hero-info-row { gap: 20px; }
+    .opening-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco-top"></div>
+  <div class="hero-deco-top2"></div>
+  <div class="hero-deco-bl"></div>
+
+  <p class="notice">본 사업은 2026 충남문화관광재단 전통예술공연활동지원입니다.</p>
+
+  <p class="hero-subtitle">고향에서 꽃피는 예술의 혼</p>
+  <h1 class="hero-title"><span>충남</span>명인전</h1>
+  <p class="hero-en">Chungnam Myeongin-jeon · Masters of Tradition</p>
+
+  <div class="hero-info-row">
+    <div class="hero-info-item">
+      <div class="hero-info-label">DATE</div>
+      <div class="hero-info-value">2026. 06. 13<br><span style="font-size:13px;font-weight:400;color:rgba(245,240,232,0.6)">토요일 오후 4시</span></div>
+    </div>
+    <div class="divider-line"></div>
+    <div class="hero-info-item">
+      <div class="hero-info-label">VENUE</div>
+      <div class="hero-info-value">공주시 행복누림<br><span style="font-size:13px;font-weight:400;color:rgba(245,240,232,0.6)">청소년수련관 대강당</span></div>
+    </div>
+    <div class="divider-line"></div>
+    <div class="hero-info-item">
+      <div class="hero-info-label">ADMISSION</div>
+      <div class="hero-info-value" style="color:var(--pink)">무료 공연</div>
+    </div>
+  </div>
+
+  <div class="performers-row">
+    <span class="performer-tag">조성돈 · 고깔소고춤</span>
+    <span class="performer-tag">신근철 · 설장고</span>
+    <span class="performer-tag">이윤구 · 채상북놀이</span>
+    <span class="performer-tag">김복만 · 북상쇠놀이</span>
+    <span class="performer-tag special">✦ 특별출연 배관호 · 금회북춤</span>
+    <span class="performer-tag">김행덕 · 설장고</span>
+    <span class="performer-tag">임웅수 · 상공놀이</span>
+  </div>
+
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- 모시는 글 -->
+<section style="padding: 100px 20px; background: rgba(0,0,0,0.15); border-top: 1px solid rgba(255,255,255,0.06);">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <p class="section-label fade-in">모시는 글</p>
+    <h2 class="section-title fade-in" style="margin-bottom: 40px;">공주농악보존회 회장<br>정철기</h2>
+
+    <div class="fade-in" style="font-family:'Noto Serif KR',serif; font-size:clamp(15px,2.5vw,18px); line-height:2.1; color:rgba(245,230,200,0.88); font-weight:300;">
+      <p style="margin-bottom:1.6em;">
+        신록이 푸르른 6月을 맞이하여 제 고향 공주에서 뜻깊은 자리를 마련하였습니다.
+      </p>
+      <p style="margin-bottom:1.6em;">
+        예로부터 충남은 충(忠)과 효(孝), 예술의 본고장이라 했습니다. 전국 각지에서 전통 예술의 맥과 혼을 이어오고 있는 많은 명인 분들이 계십니다. 그 분들을 고향으로 초청하여 충남이 낳은 명인들의 신명나는 한마당을 선보이고자 합니다.
+      </p>
+      <p>
+        가까운 분들과 함께 오셔서 충청 전통예술의 깊은 울림을 온몸으로 느껴보시길 바랍니다.
+      </p>
+    </div>
+
+    <div class="fade-in" style="margin-top:48px; padding-top:32px; border-top:1px solid rgba(245,230,200,0.15);">
+      <p style="font-size:14px; color:rgba(245,230,200,0.5); letter-spacing:0.1em; margin-bottom:6px;">2026년 6월</p>
+      <p style="font-family:'Noto Serif KR',serif; font-size:17px; font-weight:600; color:var(--cream);">공주농악보존회 회장 정철기</p>
+    </div>
+  </div>
+</section>
+
+<!-- 공연을 기획하며 -->
+<section style="padding: 100px 20px;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <p class="section-label fade-in">공연을 기획하며</p>
+    <h2 class="section-title fade-in" style="margin-bottom: 40px;">공주농악보존회<br>기획 주혜란</h2>
+
+    <div class="fade-in" style="font-family:'Noto Serif KR',serif; font-size:clamp(15px,2.5vw,18px); line-height:2.1; color:rgba(245,230,200,0.88); font-weight:300;">
+      <p style="margin-bottom:1.6em;">
+        충청의 땅은 오랜 세월 삶과 예술이 함께 숨 쉬어 온 곳입니다. 이번 「충남명인전」은 소중한 전통의 가치를 되새기고, 지역의 문화적 자긍심을 함께 나누고자 기획되었습니다.
+      </p>
+      <p style="margin-bottom:1.6em;">
+        조성돈, 이윤구, 김행덕, 김복만, 임웅수, 신근철 명인께서 각자의 예술혼을 펼쳐 보이며, 특별출연 배관호 명인께서 무대를 더욱 빛내주실 것입니다.
+      </p>
+      <p>
+        바쁘신 가운데 함께해 주신 모든 분들께 깊이 감사드리며, 오늘 이 자리가 오래도록 기억에 남는 감동의 시간이 되기를 진심으로 바랍니다.
+      </p>
+    </div>
+
+    <div class="fade-in" style="margin-top:48px; padding-top:32px; border-top:1px solid rgba(245,230,200,0.15);">
+      <p style="font-size:14px; color:rgba(245,230,200,0.5); letter-spacing:0.1em; margin-bottom:6px;">2026년 6월</p>
+      <p style="font-family:'Noto Serif KR',serif; font-size:17px; font-weight:600; color:var(--cream);">공주농악보존회 기획 주혜란</p>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<div class="overview-section">
+  <div class="overview-inner">
+    <p class="section-label fade-in">공연 개요</p>
+    <h2 class="section-title fade-in">충청이 낳은 명인들의<br>신명나는 한마당</h2>
+    <div class="overview-grid">
+      <div class="overview-item fade-in">
+        <div class="overview-key">공연</div>
+        <div class="overview-val">고향에서 꽃피는 예술의 혼<br>충남명인전</div>
+      </div>
+      <div class="overview-item fade-in">
+        <div class="overview-key">일시</div>
+        <div class="overview-val">2026년 6월 13일 (토)<br>오후 4시</div>
+      </div>
+      <div class="overview-item fade-in">
+        <div class="overview-key">장소</div>
+        <div class="overview-val">공주시 행복누림<br>청소년수련관 대강당</div>
+      </div>
+      <div class="overview-item fade-in">
+        <div class="overview-key">소요시간</div>
+        <div class="overview-val">70분</div>
+      </div>
+      <div class="overview-item fade-in">
+        <div class="overview-key">주최·주관</div>
+        <div class="overview-val">공주농악보존회</div>
+      </div>
+      <div class="overview-item fade-in">
+        <div class="overview-key">후원</div>
+        <div class="overview-val">충남문화관광재단</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAM -->
+<section class="section">
+  <p class="section-label fade-in">공연 순서</p>
+  <h2 class="section-title fade-in">프로그램</h2>
+
+  <div class="opening-card fade-in">
+    <p class="opening-title">공연을 들어가며</p>
+    <p class="opening-desc">공주농악보존회 회원들이 흥겨운 길놀이로 공연의 문을 열며 관객을 맞이합니다. 풍물 가락에 맞춰 펼쳐지는 입장 행렬은 공연장 전체를 하나의 신명 넘치는 마당으로 물들이며, 충남 명인들의 본 무대를 향한 설레는 서막을 알립니다.</p>
+  </div>
+
+  <div class="program-list">
+
+    <div class="program-item fade-in" onclick="toggleExpand(this)">
+      <div class="program-num">1</div>
+      <div class="program-info">
+        <div class="program-name">경기 고깔소고춤</div>
+        <div class="program-desc">농악 판굿 개인놀이</div>
+      </div>
+      <div class="program-performer">조성돈 <span class="expand-icon">+</span></div>
+      <div class="program-desc-expand">
+        화려한 채상소고와 달리 고깔을 쓰고 추는 단아하고 절제된 춤사위가 특징입니다. 굿거리·된굿거리·덩덕궁이 가락에 맞춰 소고를 놀리며, 화려하지 않으나 깊은 품격이 배어 있는 경기 소고춤의 진수를 보여줍니다.
+      </div>
+    </div>
+
+    <div class="program-item fade-in" onclick="toggleExpand(this)">
+      <div class="program-num">2</div>
+      <div class="program-info">
+        <div class="program-name">설장고</div>
+        <div class="program-desc">농악 판굿 개인놀이</div>
+      </div>
+      <div class="program-performer">신근철 <span class="expand-icon">+</span></div>
+      <div class="program-desc-expand">
+        농악 판굿에서 장구잡이가 홀로 나와 펼치는 개인놀이입니다. 다스름에서 시작해 빠른 손목놀림과 화려한 가락의 변주가 이어지며, 장구 하나로 춤과 가락, 흥과 멋을 동시에 보여줍니다.
+      </div>
+    </div>
+
+    <div class="program-item fade-in" onclick="toggleExpand(this)">
+      <div class="program-num">3</div>
+      <div class="program-info">
+        <div class="program-name">채상북놀이</div>
+        <div class="program-desc">국가무형유산 · 남사당놀이</div>
+      </div>
+      <div class="program-performer">이윤구 <span class="expand-icon">+</span></div>
+      <div class="program-desc-expand">
+        머리에 채상을 달고 북을 치며 추는 역동적인 연희입니다. 북 가락의 힘찬 울림과 채상이 허공을 가르며 그려내는 화려한 궤적이 어우러져, 보는 이의 눈과 귀를 동시에 사로잡습니다.
+      </div>
+    </div>
+
+    <div class="program-item fade-in" onclick="toggleExpand(this)">
+      <div class="program-num">4</div>
+      <div class="program-info">
+        <div class="program-name">북상쇠놀이</div>
+        <div class="program-desc">웃다리농악 · 경기칠채</div>
+      </div>
+      <div class="program-performer">김복만 <span class="expand-icon">+</span></div>
+      <div class="program-desc-expand">
+        상쇠가 꽹과리와 북을 넘나들며 펼치는 개인놀이입니다. 웃다리농악의 경기칠채와 자진칠채를 바탕으로 한 압도적인 쇠가락이 판 전체를 장악하며, 꽹과리 한 채로 하늘과 땅을 울리는 절정의 기량을 선보입니다.
+      </div>
+    </div>
+
+    <div class="program-item special-item fade-in" onclick="toggleExpand(this)">
+      <div class="program-num" style="color:rgba(201,168,76,0.5)">5</div>
+      <div class="program-info">
+        <div class="program-name">금회북춤 <span class="special-badge">특별출연</span></div>
+        <div class="program-desc">대구 달성 다사읍 · 금회촌 전통 북춤</div>
+      </div>
+      <div class="program-performer special-performer">배관호 <span class="expand-icon" style="color:rgba(201,168,76,0.4)">+</span></div>
+      <div class="program-desc-expand">
+        낙동강이 굽이치는 대구 달성 다사읍의 옛 지명 금회촌에서 태어난 북춤입니다. 빠른 장단 사이사이 힘과 멋을 고루 갖춘 진경사위가 특징이며, 경상도 특유의 덧뵈기 춤사위와 어우러져 영남과 충청의 가락이 하나로 만나는 특별한 무대를 선사합니다.
+      </div>
+    </div>
+
+    <div class="program-item fade-in" onclick="toggleExpand(this)">
+      <div class="program-num">6</div>
+      <div class="program-info">
+        <div class="program-name">웃다리 설장고</div>
+        <div class="program-desc">대전 무형유산 제1호 · 웃다리농악</div>
+      </div>
+      <div class="program-performer">김행덕 <span class="expand-icon">+</span></div>
+      <div class="program-desc-expand">
+        대전 무형유산 제1호 웃다리농악의 정통 가락을 품은 설장고입니다. 다스름에서 굿거리·삼채를 넘나드는 화려한 가락의 변주와 춤사위가 어우러지며, 채골이 장구통을 훑고 지나가는 순간 판 전체에 긴장감이 번집니다.
+      </div>
+    </div>
+
+    <div class="program-item fade-in" onclick="toggleExpand(this)">
+      <div class="program-num">7</div>
+      <div class="program-info">
+        <div class="program-name">광명농악 상공놀이</div>
+        <div class="program-desc">경기도 무형유산 · 광명농악</div>
+      </div>
+      <div class="program-performer">임웅수 <span class="expand-icon">+</span></div>
+      <div class="program-desc-expand">
+        머리에 부포 대신 상모고깔을 쓰고 태평소 가락에 맞춰 펼치는 것이 특징입니다. 450여 년 전 구름산 도당굿의 춤 동작과 광명농악 가락을 중심으로 재현한 무대로, 굿거리 가락 위로 높게 뻗어나가는 쇠가락의 흥과 멋이 일품입니다.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-title">충남명인전</div>
+  <p class="footer-sub">고향에서 꽃피는 예술의 혼 · 2026</p>
+  <p class="footer-org">주최·주관 공주농악보존회</p>
+  <p class="footer-org">후원 충남문화관광재단</p>
+  <p class="footer-org" style="margin-top:12px; color:var(--pink)">문의 010-2787-8054</p>
+  <p class="footer-org" style="margin-top:6px;">전석 무료 공연 (7세 이상 관람)</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function toggleExpand(el) {
+    const isExpanded = el.classList.contains('expanded');
+    // 다른 열린 항목 닫기
+    document.querySelectorAll('.program-item.expanded').forEach(item => {
+      item.classList.remove('expanded');
+    });
+    // 클릭한 항목 토글
+    if (!isExpanded) {
+      el.classList.add('expanded');
+    }
+  }
+</script>
+</body>
+</html>
